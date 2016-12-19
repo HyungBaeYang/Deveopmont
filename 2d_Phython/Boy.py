@@ -15,10 +15,12 @@ class Boy:
     image = None
     global running
 
-    (plane_STAND ,plane_LEFT, plane_RIGHT, plane_Bullet) = (0, 1, 2, 3)
+    plane_STAND ,plane_LEFT, plane_RIGHT, plane_Bullet, plane_UP, plane_DOWN = (0, 1, 2, 3, 4, 5)
     MOVE = None
     PUSHLEFT = None
     PUSHRIGHT = None
+    PUSHUP = None
+    PUSHDOWN = None
 
     def __init__(self):
         self.x, self.y = 300, 100
@@ -54,6 +56,21 @@ class Boy:
             self.MOVE = False
             self.PUSHLEFT = False
             self.PUSHRIGHT = False
+        elif(event.type, event.key) == (SDL_KEYDOWN, SDLK_UP):
+            self.MOVE = True
+            self.PUSHUP = True
+            #self.PUSHDOWN = False
+        elif (event.type, event.key) == (SDL_KEYUP, SDLK_UP):
+            self.MOVE = False
+            self.PUSHUP = False
+            #self.PUSHDOWN = False
+        elif (event.type, event.key) == (SDL_KEYUP, SDLK_DOWN):
+            self.MOVE = False
+            self.PUSHDOWN = False
+        elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_DOWN):
+            self.MOVE = True
+            self.PUSHDOWN = True
+            #self.PUSHDOWN = False
         elif(event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
             bulletCon.append(Bullet(self.x, self.y))
 
@@ -63,11 +80,22 @@ class Boy:
                 self.state = self.plane_LEFT
             if self.PUSHRIGHT == True:
                 self.state = self.plane_RIGHT
+
+            if self.PUSHUP == True:
+                self.state = self.plane_UP
+            if self.PUSHDOWN == True:
+                self.state = self.plane_DOWN
+
         elif self.MOVE == False:
             if self.PUSHLEFT == False:
                 self.state = self.plane_STAND
             elif self.PUSHRIGHT == False:
-                self.state = self.plane_RIGHT
+                self.state = self.plane_STAND
+            elif self.PUSHUP == False:
+                self.state = self.plane_STAND
+            elif self.PUSHDOWN == False:
+                self.state = self.plane_STAND
+
 
     def frames(self):
         if self.state == self.plane_STAND:
@@ -77,6 +105,13 @@ class Boy:
             self.state = 1
         elif self.state == self.plane_RIGHT:
             self.x += 5
+            self.state = 0
+
+        elif self.state == self.plane_UP:
+            self.y += 5
+            self.state = 0
+        elif self.state == self.plane_DOWN:
+            self.y -= 5
             self.state = 0
 
 
