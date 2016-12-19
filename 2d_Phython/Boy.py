@@ -61,7 +61,6 @@ class Boy:
         if self.MOVE == True:
             if self.PUSHLEFT == True:
                 self.state = self.plane_LEFT
-                #self.state = self.plane_RIGHT
             if self.PUSHRIGHT == True:
                 self.state = self.plane_RIGHT
         elif self.MOVE == False:
@@ -72,20 +71,13 @@ class Boy:
 
     def frames(self):
         if self.state == self.plane_STAND:
-            #self.frame = 2
             self.state = 2
-            #self.frame = 0
         elif self.state == self.plane_LEFT:
             self.x -= 5
             self.state = 1
-            #self.frame = (self.frame - 1) % 1
-            #self.frame = 2
         elif self.state == self.plane_RIGHT:
             self.x += 5
-            print('R')
             self.state = 0
-            #self.frame = (self.frame + 1) % 1
-            #self.frame = 1
 
 
     def draw(self):
