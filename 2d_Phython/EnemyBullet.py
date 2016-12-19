@@ -9,14 +9,11 @@ class EnemyBullet:
 
     image = None
 
-
     def __init__(self, x, y):
         self.x, self.y = x, y
         self.frame = 0
         self.image = load_image("Missail.jpg")
-
         self.dir = 1
-
 
     def update(self):
         self.y -= 2
