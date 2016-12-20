@@ -17,7 +17,6 @@ class Enemy:
    def __init__(self,x,y):
         self.x = x
         self.y = y
-        #self.x, self.y = random.randint(0,500), random.randint(800,1500)
         self.startx = self.x
         self.frame = random.randint(0, 5)
         self.dir = -1
@@ -30,7 +29,6 @@ class Enemy:
    def Variable(self):
         if(self.Type == 2):
             self.image = load_image("resource/enemy/비행기 폭발 모션.png")
-            print("이미지변환 조건 실행")
             return True
 
         else:
@@ -50,9 +48,7 @@ class Enemy:
    def Hp(self):
 
         self.NHp -= 1
-        print("HP함수 실행 현재 HP : %d", self.NHp)
         if(self.NHp == 0):
-            print("비행기 격파")
             #self.NHp = 3
             self.Type = 2
             return True
@@ -73,13 +69,7 @@ class Enemy:
                 elif(self.x >= 500):
                     self.dir *= -1
 
-        elif(self.Type == 2):
-            print("파괴실행")
 
-
-
-#        if(self.Type == 2):
- #            Enemy.image = load_image("resource/enemy/비행기 폭발 모션.png")
 
 
 
@@ -88,7 +78,6 @@ class Enemy:
 
    def draw(self):
         self.image.draw(self.x,self.y)
-        #draw_rectangle(*self.get_bb())
 
 class Enemy2:
    global Type
@@ -98,7 +87,6 @@ class Enemy2:
    def __init__(self,x, y):
         self.x = x
         self.y = y
-        #self.x, self.y = random.randint(0,500), random.randint(800,1500)
         self.startx = self.x
         self.frame = random.randint(0, 5)
         self.dir = -1
@@ -110,7 +98,6 @@ class Enemy2:
    def Variable(self):
         if(self.Type == 2):
             self.image = load_image("resource/enemy/비행기 폭발 모션.png")
-            print("이미지변환 조건 실행")
             return True
 
         else:
@@ -118,16 +105,12 @@ class Enemy2:
 
    def Power(self):
        self.BHp -= 10
-       print("HP함수 실행 현재 HP : %d", self.BHp)
        if(self.BHp <= 0):
-            print("비행기 격파")
             self.Type = 2
 
    def Hp(self):
         self.BHp -= 1
-        print("HP함수 실행 현재 HP : %d", self.BHp)
         if(self.BHp == 0):
-            print("비행기 격파")
             self.Type = 2
             return True
         else:
@@ -139,24 +122,7 @@ class Enemy2:
                 self.y += (self.dir * 10)
             else:
                 self.y = 599
-                #self.x += (self.dir * 1)
-                # if(self.x < 245):
-                #     self.dir *= -1
-                # elif(self.x > 255):
-                #     self.dir *= -1
 
-
-
-
-
-
-
-
-
-
-
-#        if(self.Type == 2):
- #            Enemy.image = load_image("resource/enemy/비행기 폭발 모션.png")
 
 
 
@@ -165,7 +131,6 @@ class Enemy2:
 
    def draw(self):
         self.image.draw(self.x,self.y)
-        #draw_rectangle(*self.get_bb())
 
 
 
@@ -178,7 +143,6 @@ class middleboss:
    def __init__(self,x, y):
         self.x = x
         self.y = y
-        #self.x, self.y = random.randint(0,500), random.randint(800,1500)
         self.startx = self.x
         self.frame = random.randint(0, 5)
         self.dir = -1
@@ -190,7 +154,6 @@ class middleboss:
    def Variable(self):
         if(self.Type == 2):
             self.image = load_image("resource/enemy/비행기 폭발 모션.png")
-            print("이미지변환 조건 실행")
             return True
 
         else:
@@ -198,9 +161,7 @@ class middleboss:
 
    def Hp(self):
         self.MBHp -= 1
-        print("HP함수 실행 현재 HP : %d", self.MBHp)
         if(self.MBHp <= 0):
-            print("비행기 격파")
             self.Type = 2
             return True
         else:
@@ -208,9 +169,7 @@ class middleboss:
 
    def Power(self):
        self.MBHp -= 10
-       print("HP함수 실행 현재 HP : %d", self.MBHp)
        if(self.MBHp <= 0):
-            print("비행기 격파")
             self.Type = 2
 
 
@@ -221,24 +180,7 @@ class middleboss:
                 self.y += (self.dir * 3)
             else:
                 self.y = 599
-                #self.x += (self.dir * 1)
-                # if(self.x < 245):
-                #     self.dir *= -1
-                # elif(self.x > 255):
-                #     self.dir *= -1
 
-
-
-
-
-
-
-
-
-
-
-#        if(self.Type == 2):
- #            Enemy.image = load_image("resource/enemy/비행기 폭발 모션.png")
 
 
 
@@ -247,8 +189,6 @@ class middleboss:
 
    def draw(self):
         self.image.draw(self.x,self.y)
-        #draw_rectangle(*self.get_bb())
-
 
 
 

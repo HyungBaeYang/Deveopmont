@@ -31,8 +31,6 @@ class Upgrade1:
             self.YDir *= -1
         elif(self.y >= 690):
             self.YDir *= -1
-        # self.frame = (self.frame+1) % self.frameSize
-        # self.y = self.y + 40
 
    def Delete(self):
         self.y = 1000
@@ -45,7 +43,6 @@ class Upgrade1:
 
    def draw(self):
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 class Upgrade2:
    image = None
@@ -73,8 +70,6 @@ class Upgrade2:
             self.YDir *= -1
         elif(self.y >= 690):
             self.YDir *= -1
-        # self.frame = (self.frame+1) % self.frameSize
-        # self.y = self.y + 40
 
    def Delete(self):
         self.y = 1000
@@ -87,4 +82,3 @@ class Upgrade2:
 
    def draw(self):
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())

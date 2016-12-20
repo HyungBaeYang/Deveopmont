@@ -44,23 +44,20 @@ class character:
 
         character.image = load_image("resource/character/plane.png")
 
+    #천천히
 
    def handle_event(self, event):
         global mis
         global left,right,up,down, LR
         if(event.type, event.key) == (SDL_KEYDOWN, SDLK_LEFT):
-
                 left = True
                 LR = 1
         if(event.type, event.key) == (SDL_KEYDOWN,SDLK_RIGHT):
-
                 right = True
                 LR = 2
         if(event.type, event.key) == (SDL_KEYDOWN,SDLK_UP):
-
                 up = True
         if(event.type, event.key) == (SDL_KEYDOWN,SDLK_DOWN):
-
                 down = True
         if(event.type, event.key) == (SDL_KEYUP, SDLK_LEFT):
                 LR = 0
@@ -69,10 +66,8 @@ class character:
                 LR = 0
                 right = False
         if(event.type, event.key) == (SDL_KEYUP,SDLK_UP):
-
                 up = False
         if(event.type, event.key) == (SDL_KEYUP,SDLK_DOWN):
-
                 down = False
 
    def get_bb(self):
@@ -114,5 +109,3 @@ class character:
 
    def draw(self):
         self.image.clip_draw(0, 200 - ( LR * 100), 100, 100, self.x, self.y)
-        #self.image.(self.x,self.y)
-        #draw_rectangle(*self.get_bb())

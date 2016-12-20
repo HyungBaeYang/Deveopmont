@@ -18,7 +18,6 @@ class PowerAttack1:
         self.XDir = 5
         self.YDir = 3
         self.Time = 0
-        PowerAttack1.image = load_image("resource/PowerAttack/필살기 비행기.png")
 
    def update(self):
         self.y += self.YDir
@@ -29,9 +28,6 @@ class PowerAttack1:
             else:
                 self.YDir = 0
                 self.Time += 1
-        # self.frame = (self.frame+1) % self.frameSize
-        # self.y = self.y + 40
-
    def Delete(self):
         if(self.y >= 750):
             return True
@@ -50,6 +46,3 @@ class PowerAttack1:
 
    def draw(self):
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
-        #draw_rectangle(*self.get_bb2())
-

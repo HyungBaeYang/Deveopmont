@@ -28,7 +28,6 @@ def update():
    global logo_time,bgm
    if(logo_time > 1.0):
        logo_time = 0
-       # bgm.stop()
        game_framework.push_state(title_state)
 
    delay(0.01)
