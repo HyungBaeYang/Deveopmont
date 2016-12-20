@@ -26,12 +26,11 @@ class Missile1:
            return False
 
    def get_bb(self):
-        return self.x - 12, self.y - 5, self.x + 12, self.y + 10
+       return self.x - 12, self.y - 5, self.x + 12, self.y + 10
 
    def draw(self):
         Missile1.image = load_image('resource/HMissile1.png')
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 class UpMissile:
    image = None
@@ -58,7 +57,6 @@ class UpMissile:
 
    def draw(self):
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 class UpMissile2:
    image = None
@@ -85,7 +83,6 @@ class UpMissile2:
 
    def draw(self):
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 
 class Missile2:
@@ -114,7 +111,6 @@ class Missile2:
    def draw(self):
         Missile2.image = load_image("resource/missile/미사일.jpg")
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 
 
@@ -131,7 +127,6 @@ class Missile3:
         self.y = y
         self.Angle = 0.0
         self.PI = 3.141592
-        #Missile3.image = load_image("resource/missile/보스미사일.jpg")
 
 
    def get_bb(self):
@@ -146,14 +141,10 @@ class Missile3:
 
         if(self.Angle >= 360):
             self.Angle = 0
-    # m_tInfo.fX += cosf(m_fAngle * PI / 180.f) * m_fSpeed;
-	# m_tInfo.fY -= sinf(m_fAngle * PI / 180.f) * m_fSpeed;
 
    def draw(self):
         Missile3.image = load_image("resource/missile/보스미사일.jpg")
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
-
 
    def Delete(self):
        if(self.y > 700):
@@ -192,8 +183,8 @@ class Missile4:
         Missile4.image = load_image("resource/missile/중보스미사일.jpg")
 
 
-   def get_bb(self):
-        return self.x - 15, self.y - 15, self.x + 15, self.y + 15
+   #def get_bb(self):
+   #     return self.x - 15, self.y - 15, self.x + 15, self.y + 15
 
    def update(self, playerx, playery):
         self.frame = (self.frame+1) % self.frameSize
@@ -204,34 +195,17 @@ class Missile4:
             self.Height =  playery - self.y
         self.Width = playerx - self.x
         self.Distance = math.sqrt(self.Width * self.Width) + (self.Height + self.Height)
-        self.Angle = math.acos(self.Width / self.Distance)
 
-
-        if(playery >= self.y):
-            self.Angle = 2 * self.PI - self.Angle
 
         self.y = self.y - math.sin(self.Angle) * 5
         self.x = self.x + math.cos(self.Angle) * 5
 
-	# if(m_pPlayer->GetInfo().fY > m_tInfo.fY)
-	# {
-	# 	m_fAngle = 2 * PI - m_fAngle;
-	# }
-
-        # if(self.Angle >= 360):
-        #     self.Angle = 0
-    # m_tInfo.fX += cosf(m_fAngle * PI / 180.f) * m_fSpeed;
-	# m_tInfo.fY -= sinf(m_fAngle * PI / 180.f) * m_fSpeed;
 
    def draw(self):
-        #Missile4.image = load_image("resource/missile/중보스미사일.jpg")
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 
    def Delete(self):
-       # if(self.y > 600):
-       #     return True
 
        if(self.y < 50):
            return True
@@ -256,8 +230,7 @@ class Missile5:
         self.x = x
         self.y = y
         self.Angle = 0.0
-        self.PI = 3.141592
-        #Missile3.image = load_image("resource/missile/보스미사일.jpg")
+        self.PI = 3.14
 
 
    def get_bb(self):
@@ -265,21 +238,10 @@ class Missile5:
 
    def update(self, Angle):
        self.y -= 10
-        # self.frame = (self.frame+1) % self.frameSize
-        # self.y = self.y - math.sin(Angle *self.PI/180) * 15
-        # self.x = self.x + math.cos(Angle *self.PI/180) * 15
-        #
-        #
-        #
-        # if(self.Angle >= 360):
-        #     self.Angle = 0
-    # m_tInfo.fX += cosf(m_fAngle * PI / 180.f) * m_fSpeed;
-	# m_tInfo.fY -= sinf(m_fAngle * PI / 180.f) * m_fSpeed;
 
    def draw(self):
         Missile5.image = load_image("resource/missile/보스미사일.jpg")
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 
    def Delete(self):
@@ -305,6 +267,8 @@ class Missile4:
    global Height
    global Distance
    image = None
+
+
    def __init__(self,x,y):
         self.frameSize = 20
         self.frame = 0
@@ -319,7 +283,7 @@ class Missile4:
 
 
    def get_bb(self):
-        return self.x - 15, self.y - 15, self.x + 15, self.y + 15
+        return self.x, self.y, self.x, self.y
 
    def update(self, playerx, playery):
         self.frame = (self.frame+1) % self.frameSize
@@ -332,32 +296,15 @@ class Missile4:
         self.Distance = math.sqrt(self.Width * self.Width) + (self.Height + self.Height)
         self.Angle = math.acos(self.Width / self.Distance)
 
-
-        if(playery >= self.y):
-            self.Angle = 2 * self.PI - self.Angle
-
         self.y = self.y - math.sin(self.Angle) * 5
         self.x = self.x + math.cos(self.Angle) * 5
 
-	# if(m_pPlayer->GetInfo().fY > m_tInfo.fY)
-	# {
-	# 	m_fAngle = 2 * PI - m_fAngle;
-	# }
-
-        # if(self.Angle >= 360):
-        #     self.Angle = 0
-    # m_tInfo.fX += cosf(m_fAngle * PI / 180.f) * m_fSpeed;
-	# m_tInfo.fY -= sinf(m_fAngle * PI / 180.f) * m_fSpeed;
 
    def draw(self):
-        #Missile4.image = load_image("resource/missile/중보스미사일.jpg")
         self.image.draw(self.x,self.y )
-        #draw_rectangle(*self.get_bb())
 
 
    def Delete(self):
-       # if(self.y > 600):
-       #     return True
 
        if(self.y < 50):
            return True

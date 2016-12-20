@@ -178,7 +178,7 @@ def handle_events():
                 bullet.append(UpMissile2(player.x, player.y))
 
         if(event.type, event.key) == (SDL_KEYDOWN, SDLK_s):
-            # missilesound.play()
+
             if(Kim == 1):
                 if(minus > 0):
                     Attack.append(PowerAttack1(250, 0))
@@ -186,9 +186,6 @@ def handle_events():
                     Kim = 0
                     minus -= 1
                     AAA = 0
-            #mop = [Enemy(100+(75*i), 700) for i in range(6)]
-            # elif(MissileType == 2):
-            #     bullet.append(UpMissile(player.x, player.y))
 
 
 
@@ -223,7 +220,6 @@ def update():
     global bgm, AAA
     player.update()
     stage.update()
-
     if(Type == 3):
         P += 1
         if(P >= 200):
@@ -239,12 +235,6 @@ def update():
     if(Num2 >= 360):
         Num2 = 0
 
-
-    # Count += 1
-    #
-    # if(Count == 100):
-    #     MissileType = 2
-    #     Count = 0
 
     for Up in Upgrade:
         Up.update()
@@ -302,9 +292,6 @@ def update():
             Bossbullet3.remove(bull5)
             player.Die()
 
-
-    # for bull10 in upbullet:
-    #     bull10.update()
 
 
 
